@@ -22,10 +22,10 @@ export default {
 
 <style lang="scss" scoped>
 .form {
-  background: red;
+  
 
   &__heading {
-    color: yellow;
+    
   }
 }
 </style>

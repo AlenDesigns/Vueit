@@ -1,23 +1,35 @@
 <template>
-  <div class="form__step">
-    <div v-for="(section, index) in sections" :key="index">
-      <p class="step__name">{{ section }}</p>
+  <div>
+    <div class="form-group" :class="{ 'form-group--error': $v.name.$error }">
+        <label class="form__label">Name</label>
+        <input class="form__input" v-model.trim="$v.name.$model"/>
     </div>
+    <div class="error" v-if="!$v.name.required">Field is required</div>
+    <div class="error" v-if="!$v.name.minLength">Name must have at least {{$v.name.$params.minLength.min}} letters.</div>
   </div>
 </template>
 
 <script>
+import { required, minLength } from 'vuelidate/lib/validators';
+
 export default {
   data() {
     return {
-      sections: ["Section A", "Section B", "Section C"]
+      sections: ["Section A", "Section B", "Section C"],
+      name: ''
     };
+  },
+  validations: {
+    name: {
+      required,
+      minLength: minLength(4)
+    }
   }
 };
 </script>
 
 <style lang="scss">
-.fpr {
+.test {
   background: blue;
 }
 </style>
