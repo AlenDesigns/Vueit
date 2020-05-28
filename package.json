@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
     "dev": "webpack --config webpack.development.js",
     "dev:watch": "webpack --config webpack.development.js --watch",
-    "dev:analyze": "webpack --config webpack.analyze.js",
-    "prod": "webpack --config webpack.production.js"
+    "dev:analyze": "webpack --config webpack.analyze.js --env.NODE_ENV=dev",
+    "build:analyze": "webpack --config webpack.analyze.js --env.NODE_ENV=prod",
+    "build": "webpack --config webpack.production.js"
   },
   "repository": {
     "type": "git",
