@@ -2,6 +2,8 @@
   <div class="form">
     <h1 class="form__heading">{{ heading }}</h1>
     <step-form></step-form>
+    <p>{{this.$store.state.count}}</p>
+    <button @click='increment'>Increment</button>
   </div>
 </template>
 
@@ -16,6 +18,11 @@ export default {
   },
   components: {
     "step-form": Form
+  },
+  methods: {
+    increment() {
+      this.$store.commit('increment');
+    }
   }
 };
 </script>
